@@ -1,5 +1,6 @@
 const mongodb = require("mongodb");
 const { userInfo } = require("os");
+const { cursorTo } = require("readline");
 const User = require("../models/User");
 
 const UserCollection = (db) => {
@@ -22,6 +23,16 @@ const UserCollection = (db) => {
         });
     };
 
+    const getAllUsers = () => {
+        return collection
+            .find()
+            .toArray()
+            .then((cursor) => {
+                console.log(`getAllUsers::returning ${cursor.length} items`);
+                return { users: cursor };
+            });
+    };
+
     const createUser = (username, highscore) => {
         const user = User(username, highscore);
         return collection.insertOne(user).then(() => {
@@ -29,7 +40,7 @@ const UserCollection = (db) => {
         });
     };
 
-    const updateScore = (username, score) => {
+    const updateScore = (id, score) => {
         const filter = { _id: new mongodb.ObjectId(id) };
         return collection
             .updateOne(filter, {
@@ -44,9 +55,9 @@ const UserCollection = (db) => {
 
     return {
         getUser,
+        getAllUsers,
         createUser,
         updateScore,
-
     };
 };
 

@@ -13,7 +13,7 @@
     "url": "git+https://github.com/arrenkhl/coen161-project.git"
   },
   "author": "Arren Leung",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/arrenkhl/coen161-project/issues"
   },
@@ -22,5 +22,11 @@
     "mongodb": "^4.2.1",
     "node-fetch": "^3.1.0",
     "nodemon": "^2.0.15"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "scripts",
+      "README.md"
+    ]
   }
 }
