@@ -1,7 +1,7 @@
-const User = (username, score) => {
+const User = (username, highscore) => {
     return {
         username,
-        score,
+        highscore,
     };
 };
 

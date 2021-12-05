@@ -3,7 +3,8 @@ const fs = require("fs").promises;
 const http = require("http");
 const mongodb = require("mongodb");
 
-const
+const handleRequests = require("./routes/handleRequests");
+const UserCollection = require("./mongodb/UserCollection");
 
 const REQUIRED_CONFIGURATION = [
     "username",
@@ -27,7 +28,7 @@ const setupServer = (config) => {
     return connectionPromise.then(() => {
         return {
             port: config.port,
-            db: TaskCollection(client.db(config.defaultDatabase)),
+            db: UserCollection(client.db(config.defaultDatabase)),
         };
     });
 };
@@ -48,7 +49,7 @@ const catchJSONConfigFileReadingErrors = (file, err) => {
 };
 
 const createServer = (initializedServerState) => {
-    const server = http.createServer(handleRequest(initializedServerState.db));
+    const server = http.createServer(handleRequests(initializedServerState.db));
     server.listen(initializedServerState.port);
     console.log(
         `PID: ${process.pid}, Running on: ${initializedServerState.port}`

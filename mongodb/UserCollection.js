@@ -22,7 +22,30 @@ const UserCollection = (db) => {
         });
     };
 
+    const createUser = (username, highscore) => {
+        const user = User(username, highscore);
+        return collection.insertOne(user).then(() => {
+            return user;
+        });
+    };
+
+    const updateScore = (username, score) => {
+        const filter = { _id: new mongodb.ObjectId(id) };
+        return collection
+            .updateOne(filter, {
+                $set: {
+                    highscore: score,
+                },
+            })
+            .then(() => {
+                return collection.findOne(filter);
+            });
+    };
+
     return {
+        getUser,
+        createUser,
+        updateScore,
 
     };
 };
