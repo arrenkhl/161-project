@@ -1,0 +1,8 @@
+{
+    "scheme": "mongodb+srv://",
+    "address": "cluster0.9uzng.mongodb.net",
+    "defaultDatabase": "tasks",
+    "username": "akleung",
+    "password": "00001523885",
+    "port": 8080
+}

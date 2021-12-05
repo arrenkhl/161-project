@@ -3,6 +3,16 @@ const fs = require("fs").promises;
 const http = require("http");
 const mongodb = require("mongodb");
 
+const
+
+const REQUIRED_CONFIGURATION = [
+    "username",
+    "password",
+    "address",
+    "defaultDatabase",
+    "port",
+];
+
 const setupServer = (config) => {
     const authentication = `${config.username}:${config.password}`;
     const address = `${config.address}/${config.defaultDatabase}`;
