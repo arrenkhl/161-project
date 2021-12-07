@@ -7,10 +7,14 @@
 const http = require("http");
 const sendResponse = require("./utils/send-response");
 
-const createUser = require("./createUser.js");
-const getUser = require("./getUser.js");
-const getAllUsers = require("./getAllUsers.js");
+const createUser = require("./createUser");
+const getUser = require("./getUser");
+const getAllUsers = require("./getAllUsers");
 const updateScore = require("./updateScore");
+const serveIndex = require("./home");
+const serveLeaderboard = require("./leaderboard");
+const serveRules = require("./rules");
+const { homedir } = require("os");
 
 const handleRequests = (db) => {
     const routingTable = {
@@ -23,6 +27,15 @@ const handleRequests = (db) => {
         },
         "/user/score": {
             POST: updateScore,
+        },
+        "/play": {
+            GET: serveIndex,
+        },
+        "/leaderboard": {
+            GET: serveLeaderboard,
+        },
+        "/rules": {
+            GET: serveRules,
         },
     };
 

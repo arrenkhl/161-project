@@ -2,6 +2,7 @@ const url = require("url");
 const sendResponse = require("./utils/send-response");
 
 const getUser = (req, res) => {
+    res.headers = { 'Content-Type': 'application/json' };
     const query = url.parse(req.url, true).query;
     console.log(url.parse("http://localhost:8080/user?id=61ac55a09074dc732117b024", true).query);
     if (!query.id) {
