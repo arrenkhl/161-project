@@ -4,10 +4,8 @@ const sendResponse = (res, statusCode, body = null) => {
     if (body && res.statusCode !== 500) {
         try {
             const headers = {
-                "Content-Type": "application/json",
                 ...res.headers,
             };
-
             const responseBody =
                 headers["Content-Type"] === "application/json"
                     ? JSON.stringify(body)

@@ -2,6 +2,7 @@ const readBody = require("./utils/read-body");
 const sendResponse = require("./utils/send-response");
 
 const updateScore = (req, res) => {
+    res.headers = { 'Content-Type': 'application/json' };
     return readBody(req).then((body) => {
         const options = JSON.parse(body);
         if (!options.id) {
