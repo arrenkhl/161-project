@@ -8,12 +8,11 @@ const http = require("http");
 const sendResponse = require("./utils/send-response");
 
 const createUser = require("./createUser");
-const getUser = require("./getUser");
 const getAllUsers = require("./getAllUsers");
-const updateScore = require("./updateScore");
 const serveIndex = require("./home");
 const serveLeaderboard = require("./leaderboard");
 const serveRules = require("./rules");
+const serveFolder = require("./public");
 const { homedir } = require("os");
 
 const handleRequests = (db) => {
@@ -23,10 +22,6 @@ const handleRequests = (db) => {
         },
         "/user": {
             POST: createUser,
-            GET: getUser,
-        },
-        "/user/score": {
-            POST: updateScore,
         },
         "/play": {
             GET: serveIndex,
@@ -36,6 +31,9 @@ const handleRequests = (db) => {
         },
         "/rules": {
             GET: serveRules,
+        },
+        "/public": {
+            GET: serveFolder,
         },
     };
 
