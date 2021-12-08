@@ -1,3 +1,161 @@
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Source Code Pro';
+    color: white;
+    background-color: #313131;
+    margin: 0;
 }
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    width: 100%;
+    height: 10%;
+}
+
+nav .selected {
+    text-decoration: underline;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+/* -------- Game -------- */
+/* Start menu */
+.menu {
+    text-align: center;
+    display: none;
+}
+
+a.play {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #FFFFFF;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+a.play:hover {
+    color: #313131;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Main game */
+.game {
+    /* display: none; */
+    text-align: center;
+}
+
+form.word-enter {
+    text-align: center;
+}
+
+/* Username submission */
+.submission {
+    text-align: center;
+    display: none;
+}
+
+.submission .score-text {
+    font-size: 20px;
+}
+
+form input[type="text"] {
+    color: white;
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #FFFFFF;
+	background: transparent;
+	margin-bottom: 20px;
+	font: 16px 'Source Code Pro';
+	height: 45px;
+}
+
+form input[type="button"] {
+    background-color: transparent;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #FFFFFF;
+    border-radius: 0.12em;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    font: 16px 'Source Code Pro';
+    text-align: center;
+    transition: all 0.2s; 
+}
+
+form input[type="button"]:hover {
+    color: #313131;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+a.play-again {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #FFFFFF;
+    background-color: #FFFFFF;
+    margin: 30px 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 24px;
+    color: #313131;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+a.play-again:hover {
+    color: #FFFFFF;
+    background-color: #313131;
+    cursor: pointer;
+}
+/* ---------------------- */
+
+/* ----- Leaderboard ----- */
+table {
+    width: 25%;
+}
+
+tr, th {
+    text-align: center;
+    padding: 24px;
+}
+
+tr:nth-child(even) {
+    background-color: #414141;
+}
+/* ----------------------- */
+
+/* -------- Rules ------- */
+
+/* ---------------------- */

@@ -7,19 +7,26 @@
     <link href='../public/assets/styles/base.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../public/assets/images/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <nav>
-        <section class='title'>
-            <li><a href='/play'>Word.</a></li>
-        </section>
-        <section class='nav-options'>
-            <li><a href='/leaderboard'>Leaderboard</a></li>
-            <li><a href='/rules' class='selected'>Rules</a></li>
-        </section>
+        <a href='/leaderboard'>Leads</a>
+        <a href='/play'>
+            <img class='logo' src='../public/assets/images/favicon.png' alt='Word.' width=64px height=64px>
+        </a>
+        <a href='/rules' class='selected'>Rules</a>
     </nav>
-    <h1>Rules.</h1>
+    <main>
+        <h1>Rules.</h1>
+        <ul>
+            <li>Word must only use letters from droW</li>
+            <li>Word must have +4 characters</li>
+            <li>Word != droW</li>
+            <li>Word cannot be entered twice</li>
+        </ul>
+    </main>
 </body>
 
 </html>
