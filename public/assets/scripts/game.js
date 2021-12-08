@@ -70,6 +70,7 @@ document.querySelector('.play').addEventListener('click', () => {
     wordInput.reset();
     generateWord();
     startTimer();
+    document.querySelector('.user-input').focus();
 });
 
 document.querySelector('.play-again').addEventListener('click', () => {
