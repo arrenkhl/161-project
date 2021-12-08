@@ -26,7 +26,7 @@ const handleRequests = (db) => {
         "/play": {
             GET: serveIndex,
         },
-        "/leaderboard": {
+        "/leads": {
             GET: serveLeaderboard,
         },
         "/rules": {
