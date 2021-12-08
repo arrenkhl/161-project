@@ -3,7 +3,6 @@ const sendResponse = require('./utils/send-response');
 
 const serveFolder = (req, res) => {
     const url = "." + req.url;
-    console.log(url);
     return fs.readFile(url)
         .then((result) => {
             sendResponse(res, 200, result);
