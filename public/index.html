@@ -24,8 +24,8 @@
             <a class='play'>Play</a>
         </div>
         <div class='game'>
-            <p class='timer'>60</p>
-            <h1 class='generate-word'>ALIEN</h1>
+            <p class='timer'>59</p>
+            <h1 class='generate-word'></h1>
             <h1 class='score'>0</h1>
             <form class='word-enter' onkeypress='return event.keyCode != 13'>
                 <input type='text' name='user-input' class='user-input'>
@@ -34,11 +34,11 @@
         <div class='submission'>
             <div class='final-score'>
                 <h1>Score:</h1>
-                <p class='score-text'>69420</p>
+                <p class='score-text'>0</p>
             </div>
-            <form action='' method='post' class='username-form'>
-                <input type='text' name='username' placeholder='Username'>
-                <input type='button' value='Submit score' />
+            <form class='username-form'>
+                <input type='text' name='username' placeholder='Username' required>
+                <input type='submit' name='username-submit' value='Submit score' />
             </form>
             <a class='play-again'>Play again</a>
         </div>
