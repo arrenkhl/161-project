@@ -1,22 +1,25 @@
-const dictionary = new Set();
 const wordInput = document.querySelector('.word-enter');
+const menuDiv = document.querySelector('.menu');
+const gameDiv = document.querySelector('.game');
+const submissionDiv = document.querySelector('.submission');
 
-const validWords = new Set();
+let dict = [];
+let validWords = [];
+
+const loadDictionary = () => {
+    let xhttp = new XMLHttpRequest();
+    xhttp.open('GET', 'public/assets/texts/words_alpha.txt', false);
+    xhttp.send();
+    dict = xhttp.responseText.split(/\r?\n/);
+};
 
 const checkWord = (word) => {
-    const url = "https://api.wordnik.com/v4/word.json/" + word + "/definitions?limit=200&includeRelated=false&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
-    $.ajax({
-        type: 'GET',
-        url: url
-    }).done(function (result) {
-        if (word.length > 3) {
-            console.log('true');
-            return true;
-        }
+    if ((word.length > 2) && (dict.includes(word)) && (!validWords.includes(word))) {
+        validWords.push(word);
+        return true;
+    } else {
         return false;
-    }).fail(function () {
-        return false;
-    });
+    }
 };
 
 const startTimer = () => {
@@ -30,12 +33,16 @@ const startTimer = () => {
         if (distance < 0) {
             clearInterval(x);
             document.querySelector('.timer').innerHTML = 'Game over';
+            gameDiv.setAttribute('style', 'display: none');
+            submissionDiv.setAttribute('style', 'display: block');
         }
     }, 1000);
 };
 
 document.querySelector('.play').addEventListener('click', () => {
-    console.log('play!');
+    menuDiv.setAttribute('style', 'display: none');
+    gameDiv.setAttribute('style', 'display: block');
+    startTimer();
 });
 
 wordInput.onkeydown = (event) => {
@@ -43,11 +50,12 @@ wordInput.onkeydown = (event) => {
         event.preventDefault();
         let inputtedWord = document.querySelector(".user-input").value;
         wordInput.reset();
-        console.log(checkWord(inputtedWord));
-
+        if (checkWord(inputtedWord)) {
+            console.log('yessirrr');
+        }
     }
 }
 
-// window.addEventListener('DOMContentLoaded', (event) => {
-
-// });
+window.addEventListener('DOMContentLoaded', (event) => {
+    loadDictionary();
+});
