@@ -39,7 +39,6 @@ main {
 /* Start menu */
 .menu {
     text-align: center;
-    display: none;
 }
 
 a.play {
@@ -64,7 +63,7 @@ a.play:hover {
 
 /* Main game */
 .game {
-    /* display: none; */
+    display: none;
     text-align: center;
 }
 
